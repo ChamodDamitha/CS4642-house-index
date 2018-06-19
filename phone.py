@@ -26,7 +26,7 @@ class PhoneSpider(scrapy.Spider):
             'name': self.preprocess(response.css('h1 > span::text').extract_first()),
             'display': self.preprocess(response.css('div.display::text').extract_first()),
             'camera': self.preprocess(response.css('div.camera::text').extract_first()),
-            'cpu': self.preprocess(response.css('div.camera::text').extract_first()),
+            'cpu': self.preprocess(response.css('div.cpu::text').extract_first()),
             'ram': self.preprocess(morespecs.css('span')[0].css('span > span::text').extract_first()),
             'memory': self.preprocess(morespecs.css('span')[2].css('span > span::text').extract_first()),
             'battery': self.preprocess(morespecs.css('span')[4].css('span > span::text').extract_first()),
