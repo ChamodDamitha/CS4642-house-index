@@ -7,7 +7,7 @@ class PhoneSpider(scrapy.Spider):
     name = 'houses'
     api_url = 'http://www.hitad.lk/EN/houses/?page={}'
 
-    start_urls = [api_url.format(1)]
+    start_urls = [api_url.format(0)]
 
     def parse(self, response):
         ads = response.css('div.detail-sum')
@@ -47,7 +47,7 @@ class PhoneSpider(scrapy.Spider):
             }
 
         p = response.url.split('=')[-1]
-        yield scrapy.Request(url=self.api_url.format(int(p) + 1), callback=self.parse)
+        yield scrapy.Request(url=self.api_url.format(int(p) + 25), callback=self.parse)
 
     def process_timestamp(self, str):
         return self.preprocess(str.replace("Date :", ''))
