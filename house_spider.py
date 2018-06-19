@@ -3,7 +3,6 @@ import unicodedata
 
 import scrapy
 
-
 class PhoneSpider(scrapy.Spider):
     name = 'houses'
     api_url = 'http://www.hitad.lk/EN/houses/?page={}'
